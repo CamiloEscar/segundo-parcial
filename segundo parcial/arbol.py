@@ -251,6 +251,19 @@ def crear_bosque(arbol, bosque1, bosque2):
             insertar_nodo(bosque1, arbol['info'])
         crear_bosque(arbol['der'], bosque1, bosque2)
 
+def inorden_altura(arbol):
+    if(arbol is not None):
+        inorden_altura(arbol['izq'])
+        if arbol['datos']['altura'] < 0.9:
+            print(arbol['info'],arbol['datos']['altura'])
+        inorden_altura(arbol['der'])
+
+def inorden_peso(arbol):
+    if(arbol is not None):
+        inorden_peso(arbol['izq'])
+        if arbol['datos']['peso'] > 75:
+            print(arbol['info'],arbol['datos']['peso'])
+        inorden_peso(arbol['der'])
 
 # arb = nodoArbol()
 

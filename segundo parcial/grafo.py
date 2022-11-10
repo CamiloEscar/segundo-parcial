@@ -388,6 +388,26 @@ class Grafo():
 
         return paises
 
+    def barrido_lista(self):
+        aux = self.__inicio
+        while(aux is not None):
+            print('El personaje:', aux.info)
+            adyacente = aux.adyacentes.get_inicio()
+            while (adyacente is not None):
+                if (adyacente.peso>=2):
+                    print('Trabajo con:',adyacente.info, 'en:',adyacente.peso)
+                adyacente = adyacente.sig
+            aux = aux.sig
+
+    def barrido_lista2(self):
+        aux = self.__inicio
+        while(aux is not None):
+            print('Vertice:', aux.info)
+            aux.adyacentes.barrido_aristas()
+            aux = aux.sig
+            print()
+
+
 
 # #! algoritmos especiales dijkstra prim kruskal
 
