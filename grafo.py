@@ -407,7 +407,25 @@ class Grafo():
             aux = aux.sig
             print()
 
-
+    def mayor_cantidad_aristas (self):
+        aux = self.__inicio
+        personaje_mayor=None
+        cantidad_mayor = 0
+        while aux is not None:
+            adyacente = aux.adyacentes.get_inicio()
+            cant = 0
+            while adyacente is not None:
+                cant +=1
+                adyacente = adyacente.sig
+            if(cant == cantidad_mayor):
+                personaje_mayor = personaje_mayor +',' + aux.info
+                cantidad_mayor = cant
+            elif(cant > cantidad_mayor):
+                personaje_mayor = aux.info
+                cantidad_mayor = cant
+            aux = aux.sig
+        #return ('El Personaje:',personaje_mayor,'compartió con', cantidad_mayor,'integrantes')
+        return (personaje_mayor, cantidad_mayor)
 
 # #! algoritmos especiales dijkstra prim kruskal
 
